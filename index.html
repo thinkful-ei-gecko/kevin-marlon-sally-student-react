@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sally Student - in React</title>
+</head>
+<body>
+  <div id='application-root'></div>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script type="text/babel">
+    function App() {
+      return (
+        <div>
+          <Title header="Sally Student" />
+          <Main />
+        </div>
+      );
+    }
+
+    function Title(props) {
+      return (
+        <header>
+          <h1>{props.header}</h1>
+        </header>
+      );
+    }
+
+    function Main() {
+      return (
+        <main>
+          <Employment data={{
+              className: 'employment',
+              heading: 'Employment',
+              jobs: ["a", "b"],
+            }} />
+          <Education className="education" heading="Education" />
+          <Address />
+        </main>
+      );
+    }
+
+    function Employment(props) {
+      return (
+        <div>
+          {props.data.className}
+          {props.data.heading}
+        </div>
+      );
+    }
+
+    function Education(props) {
+      return (
+        <section className={props.className}>
+          <h2>{props.heading}</h2>
+          
+        </section>
+      );
+    }
+
+    function Address() {
+      return (
+        <address>
+
+        </address>
+      );
+    }
+
+    const appRoot = document.querySelector('#application-root');
+    ReactDOM.render(<App />, appRoot);
+  </script>
+</body>
+</html>
